@@ -45,5 +45,16 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>6d52115711af-releases</name>
+			<url>http://172.105.47.252:8081/artifactory/sastra-p2s-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>6d52115711af-snapshots</name>
+			<url>http://172.105.47.252:8081/artifactory/sastra-p2s-release-local</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
