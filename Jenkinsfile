@@ -6,7 +6,6 @@ pipeline {
 
             steps {
                     sh 'mvn -B clean package'
-                
             }
         }
     }
