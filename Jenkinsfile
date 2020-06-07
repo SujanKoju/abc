@@ -5,8 +5,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                 mvnHome = tool name: 'Jenkins_Maven', type: 'maven'
-                withMaven(maven : 'maven') {
+                withMaven(maven : 'Jenkins_Maven') {
                     sh '${mvnHome}/bin/mvn clean compile'
                 }
             }
@@ -15,7 +14,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withMaven(maven : 'maven') {
+                withMaven(maven : 'Jenkins_Maven') {
                     sh 'mvn test'
                 }
             }
