@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                 withMaven(maven : 'Jenkins_Maven') {
-                    sh '${mvnHome}/bin/mvn clean compile'
+                    sh 'mvn clean compile'
                 }
             }
         }
