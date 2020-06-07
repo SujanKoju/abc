@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
-
-            steps {
+        stage ('Packaging Stage') {
                     sh 'mvn -B clean package'
-            }
         }
+        stage ('Packaging Stage') {
+                            sh 'mvn clean install'
+                }
     }
 }
