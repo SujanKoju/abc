@@ -8,7 +8,7 @@ pipeline {
                     sh 'mvn -B clean package'
             }
         }
-        stage ('Packaging Stage') {
+        stage ('Install Stage') {
 
                     steps {
                             sh 'mvn clean install'
