@@ -16,7 +16,7 @@ node {
 
         stage('Image Push') {
                 // This step should not normally be used in your script. Consult the inline help for details.
-                withCredentials([string(credentialsId: 'Hub_Docker_Cred', variable: 'dockerHubPwd')]) {
+                withCredentials([string(credentialsId: 'Sujan_docker', variable: 'dockerHubPwd')]) {
                     sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
 
                 }
