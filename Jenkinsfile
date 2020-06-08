@@ -1,6 +1,6 @@
 node {
        stage('Git Glone') {
-                    git branch: 'develop', url: 'https://github.com/SujanKoju/abc'
+                    git branch: 'master', url: 'https://github.com/SujanKoju/abc'
                     echo '----------------------------- CLONE COMPLETED -----------------------------'
             }
 
