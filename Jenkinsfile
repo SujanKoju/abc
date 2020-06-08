@@ -16,7 +16,7 @@ node {
 
         stage('Image Push') {
                 // This step should not normally be used in your script. Consult the inline help for details.
-                withCredentials([string(credentialsId: 'Apex@1234', variable: 'dockerHubPwd')]) {
+                withCredentials([string(credentialsId: 'e269dcc3-65d5-4ac9-b309-aabb51396de2', variable: 'dockerHubPwd')]) {
                     sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
 
                 }
