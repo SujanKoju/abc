@@ -1,7 +1,5 @@
 node {
     try {
-        notifyBuild('STARTED')
-
        stage('Git Glone') {
                     git branch: 'develop', url: 'https://github.com/SujanKoju/abc'
                     echo '----------------------------- CLONE COMPLETED -----------------------------'
@@ -87,39 +85,6 @@ node {
     currentBuild.result = "FAILED"
     throw e
   } finally {
-    // Success or failure, always send notifications
-    notifyBuild(currentBuild.result)
   }
 }
-
-def notifyBuild(String buildStatus = 'STARTED') {
-  // build status of null means successful
-  buildStatus =  buildStatus ?: 'SUCCESSFUL'
-
-  // Default values
-  def colorName = 'RED'
-  def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Build '${env.JOB_NAME} version = 1.${env.BUILD_NUMBER}'"
-
-  // Override default values based on build status
-  if (buildStatus == 'STARTED') {
-    color = 'YELLOW'
-    colorCode = '#FFFF00'
-    summary = "${subject}"
-
-  } else if (buildStatus == 'SUCCESSFUL') {
-    color = 'GREEN'
-    colorCode = '#00FF00'
-    summary = "${subject} \n Dev Live Url is: http://172.105.52.51:8082 "
-
-
-  } else {
-    color = 'RED'
-    colorCode = '#FF0000'
-    summary = "${subject} \n Please visit to check failure status: ${env.BUILD_URL}console"
-
-  }
-
-  // Send notifications
-  slackSend (color: colorCode, message: summary)
 }
