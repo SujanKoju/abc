@@ -12,7 +12,7 @@ pipeline {
         stage ('Deploy Stage') {
 
                             steps {
-                                    sh 'mvn clean install'
+                                    sh 'mvn deploy'
                                     echo "-------------------- Deploy Stage Completed -------------------- "
                             }
                         }
