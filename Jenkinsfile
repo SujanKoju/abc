@@ -9,7 +9,7 @@ node {
              echo '----------------------------- MAVEN BUILD COMPLETED -----------------------------'
         }
    stage('Image Build'){
-             sh 'docker build -t suzuran1995/abc:1.${BUILD_NUMBER} .'
+             sh 'docker build -t ayoremit1995/abc:1.${BUILD_NUMBER} .'
               echo '----------------------------- IMAGE BUILD COMPLETED -----------------------------'
         }
 
