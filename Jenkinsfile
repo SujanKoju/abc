@@ -38,5 +38,6 @@ node {
                       sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRm}"
                       sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRun}"
                     }
+                    echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
   }
