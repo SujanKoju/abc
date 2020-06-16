@@ -14,15 +14,15 @@ node {
         }
 
         stage('Image Push') {
-                withCredentials([string(credentialsId: 'Sujan_Docker', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
+                withCredentials([string(credentialsId: 'ayo_remit_docker', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u ayoremit1995 -p ${dockerHubPwd}"
                 }
-                    sh 'docker push suzuran1995/abc:1.${BUILD_NUMBER}'
+                    sh 'docker push ayoremit1995/abc:1.${BUILD_NUMBER}'
                      echo '----------------------------- IMAGE PUSH COMPLETED -----------------------------'
         }
 
         stage('Remove Build Images'){
-            sh 'docker rmi suzuran1995/abc:1.${BUILD_NUMBER}'
+            sh 'docker rmi ayoremit1995/abc:1.${BUILD_NUMBER}'
              echo '----------------------------- REMOVE IMAGE COMPLETED -----------------------------'
         }
 
