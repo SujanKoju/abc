@@ -14,7 +14,7 @@ node {
         }
 
         stage('Image Push') {
-                withCredentials([string(credentialsId: 'Sujan_Docker', variable: 'dockerHubPwd')]) {
+                withCredentials([string(credentialsId: 'sujan_docker_hub', variable: 'dockerHubPwd')]) {
                     sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
                 }
                     sh 'docker push suzuran1995/abc:1.${BUILD_NUMBER}'
