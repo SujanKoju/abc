@@ -9,15 +9,15 @@ node {
              echo '----------------------------- MAVEN BUILD COMPLETED -----------------------------'
         }
    stage('Image Build'){
-             sh 'docker build -t suzuran1995/abc:1.${BUILD_NUMBER} .'
+             sh 'docker build -t ayoremit1995/abc:1.${BUILD_NUMBER} .'
               echo '----------------------------- IMAGE BUILD COMPLETED -----------------------------'
         }
 
         stage('Image Push') {
-                     withCredentials([string(credentialsId: 'sujan_docker_hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
+                     withCredentials([string(credentialsId: 'ayo_remit_docker', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u ayoremit1995 -p ${dockerHubPwd}"
                 }
-                    sh 'docker push suzuran1995/abc:1.${BUILD_NUMBER}'
+                    sh 'docker push ayoremit1995/abc:1.${BUILD_NUMBER}'
                      echo '----------------------------- IMAGE PUSH COMPLETED -----------------------------'
         }
 
