@@ -15,9 +15,9 @@ node {
 
         stage('Image Push') {
                      withCredentials([string(credentialsId: 'sujan_docker_hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u sujan1995 -p ${dockerHubPwd}"
+                    sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
                 }
-                    sh 'docker push sujan1995/abc:1.${BUILD_NUMBER}'
+                    sh 'docker push suzuran1995/abc:1.${BUILD_NUMBER}'
                      echo '----------------------------- IMAGE PUSH COMPLETED -----------------------------'
         }
 
