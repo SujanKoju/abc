@@ -14,9 +14,9 @@ node {
         }
 
         stage('Image Push') {
-              
-                    sh "docker login -u ayoremit1995 -p Ayo!@#$Remit"
-                
+                     withCredentials([string(credentialsId: 'ayo_remit_docker', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u ayoremit1995 -p ${dockerHubPwd}"
+                }
                     sh 'docker push ayoremit1995/abc:1.${BUILD_NUMBER}'
                      echo '----------------------------- IMAGE PUSH COMPLETED -----------------------------'
         }
