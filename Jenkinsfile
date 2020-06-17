@@ -14,10 +14,9 @@ node {
         }
 
         stage('Image Push') {
-                     withCredentials([string(credentialsId: 'sujan_docker_hub', variable: 'dockerHubPwd')]) {
+                withCredentials([string(credentialsId: 'Sujan_Docker', variable: 'dockerHubPwd')]) {
                     sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
                 }
-               echo '------- LOGIN SUCCESS ---------'
                     sh 'docker push suzuran1995/abc:1.${BUILD_NUMBER}'
                      echo '----------------------------- IMAGE PUSH COMPLETED -----------------------------'
         }
@@ -33,12 +32,12 @@ node {
                       def dockerContRm = 'docker rm -f abc || true'
                       def dockerContRun =  'docker run -d --name abc -p 8585:8585 -e SPRING_PROFILES_ACTIVE=dev suzuran1995/abc:1.${BUILD_NUMBER}'
 
-                    sshagent(['Sastra-QA-qauser']) {
-              sh "ssh -o StrictHostKeyChecking=no ubuntu@3.10.9.128 ${dockerpull}"
-              sh "ssh -o StrictHostKeyChecking=no ubuntu@3.10.9.128 ${dockerContKill}"
-              sh "ssh -o StrictHostKeyChecking=no ubuntu@3.10.9.128 ${dockerContRm}"
-              sh "ssh -o StrictHostKeyChecking=no ubuntu@3.10.9.128 ${dockerContRun}"
-            }
+                    sshagent(['sujan-ser']) {
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerpull}"
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContKill}"
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRm}"
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRun}"
+                    }
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
   }
