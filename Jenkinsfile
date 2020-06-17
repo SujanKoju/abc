@@ -32,12 +32,12 @@ node {
                       def dockerContRm = 'docker rm -f abc || true'
                       def dockerContRun =  'docker run -d --name abc -p 8585:8585 -e SPRING_PROFILES_ACTIVE=dev suzuran1995/abc:1.${BUILD_NUMBER}'
 
-                    sshagent(['sujan-server']) {
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerpull}"
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContKill}"
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRm}"
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRun}"
-                    }
+                    sshagent(['Sastra-QA-qauser']) {
+              sh "ssh -o StrictHostKeyChecking=no sastraqa@172.105.52.51 ${dockerpull}"
+              sh "ssh -o StrictHostKeyChecking=no sastraqa@172.105.52.51 ${dockerContKill}"
+              sh "ssh -o StrictHostKeyChecking=no sastraqa@172.105.52.51 ${dockerContRm}"
+              sh "ssh -o StrictHostKeyChecking=no sastraqa@172.105.52.51 ${dockerContRun}"
+            }
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
   }
