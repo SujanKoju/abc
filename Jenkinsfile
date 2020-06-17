@@ -14,11 +14,10 @@ node {
         }
 
         stage('Image Push') {
-                     withCredentials([string(credentialsId: 'ayo_remit_docker', variable: 'dockerHubPwd')]) {
-                            echo '${dockerHubPwd}'
-                    sh "docker login -u ayoremit1995 -p ${dockerHubPwd}"
+                     withCredentials([string(credentialsId: 'sujan_docker_hub', variable: 'dockerHubPwd')]) {
+                    sh "docker login -u sujan1995 -p ${dockerHubPwd}"
                 }
-                    sh 'docker push ayoremit1995/abc:1.${BUILD_NUMBER}'
+                    sh 'docker push sujan1995/abc:1.${BUILD_NUMBER}'
                      echo '----------------------------- IMAGE PUSH COMPLETED -----------------------------'
         }
 
