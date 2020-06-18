@@ -25,16 +25,16 @@ node {
              echo '----------------------------- REMOVE IMAGE COMPLETED -----------------------------'
         }
          stage('Deploy in server'){
-                      def dockerpull = 'docker pull suzuran1995/abc:1.${BUILD_NUMBER}'
+                      /* def dockerpull = 'docker pull suzuran1995/abc:1.${BUILD_NUMBER}'
                       def dockerContKill = 'docker kill abc || true'
                       def dockerContRm = 'docker rm -f abc || true'
                       def dockerContRun =  'docker run -d --name abc -p 8585:8585 -e SPRING_PROFILES_ACTIVE=dev suzuran1995/abc:1.${BUILD_NUMBER}'
-                  
-                      sh "ssh -p ';C`D&,/T&T56fXwf' ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerpull}"
-                      sh "ssh -p ';C`D&,/T&T56fXwf' ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContKill}"
-                      sh "ssh -p ';C`D&,/T&T56fXwf' ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRm}"
-                      sh "ssh -p ';C`D&,/T&T56fXwf' ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRun}"
-                 
+                    sshagent(['ayo-server']) {
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerpull}"
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContKill}"
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRm}"
+                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRun}"
+                    } */
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
   }
