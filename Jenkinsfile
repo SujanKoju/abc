@@ -25,12 +25,12 @@ node {
              echo '----------------------------- REMOVE IMAGE COMPLETED -----------------------------'
         }
          stage('Deploy in server'){
-                      // def dockerpull = 'docker pull suzuran1995/abc:1.${BUILD_NUMBER}'
-                def dockerpull = 'dig +short myip.opendns.com @resolver1.opendns.com'      
+                 def dockerpull = 'docker pull suzuran1995/abc:1.${BUILD_NUMBER}'
                 def dockerContKill = 'docker kill abc || true'
                       def dockerContRm = 'docker rm -f abc || true'
                       def dockerContRun =  'docker run -d --name abc -p 8585:8585 -e SPRING_PROFILES_ACTIVE=dev suzuran1995/abc:1.${BUILD_NUMBER}'
-                    sshagent(['server']) {
+                    sshagent(['sastra-server']) {
+                             echo '----------------------------- ENTERED REMOTE SERVER -----------------------------'
                       sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerpull}"
                       sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContKill}"
                       sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRm}"
