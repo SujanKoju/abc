@@ -31,10 +31,10 @@ node {
                       def dockerContRun =  'docker run -d --name abc -p 8787:8787 -e SPRING_PROFILES_ACTIVE=dev suzuran1995/abc:1.${BUILD_NUMBER}'
                     sshagent(['ayo-server']) {
                              echo '----------------------------- ENTERED REMOTE SERVER -----------------------------'
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerpull}"
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContKill}"
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRm}"
-                      sh "ssh -o StrictHostKeyChecking=no sujan@172.105.52.51 ${dockerContRun}"
+                      sh "ssh -o StrictHostKeyChecking=no root@77.68.121.41 ${dockerpull}"
+                      sh "ssh -o StrictHostKeyChecking=no root@77.68.121.41 ${dockerContKill}"
+                      sh "ssh -o StrictHostKeyChecking=no root@77.68.121.41 ${dockerContRm}"
+                      sh "ssh -o StrictHostKeyChecking=no root@77.68.121.41 ${dockerContRun}"
                     } 
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
