@@ -8,7 +8,7 @@ public class TestController {
     @GetMapping("test")
     public String test() {
         System.out.println("HERE I AM SUJAN");
-        return "HELLO WORLD .. sdDEPLOYED FROM AYO JENKINS--------> MAARO MUJH E";
+        return "HELLO WORLD ..Maaro mujhe";
     }
 
 }
