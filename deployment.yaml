@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abc-example
+  labels:
+    app: abc-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abc-example
+  template:
+    metadata:
+      labels:
+        app: abc-example
+    spec:
+      containers:
+        - name: abc-example
+          image: 'suzuran1995/abc:latest'
+          ports:
+            - containerPort: 8080
+            - containerPort: 443
