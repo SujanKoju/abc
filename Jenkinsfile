@@ -29,12 +29,10 @@ node {
                 sh './changeTag.sh 1.${BUILD_NUMBER}'
                 sshagent(['server']) {
                       echo '----------------------------- ENTERED REMOTE SERVER -----------------------------'
-                      sh 'ssh sujan@77.68.121.41 kubectl apply -f deployment.yaml ls'
+                      sh 'ssh sujan@77.68.121.41 ls'
                       sh 'scp -o StrictHostKeyChecking=no deployment.yaml service.yaml sujan@77.68.121.41'
-                        script{
-                            sh 'ssh sujan@77.68.121.41 kubectl apply -f deployment.yaml'
-                            sh 'ssh sujan@77.68.121.41 kubectl apply -f service.yaml'
-                              }
+                      sh 'ssh sujan@77.68.121.41 kubectl apply -f deployment.yaml'
+                      sh 'ssh sujan@77.68.121.41 kubectl apply -f service.yaml'
                       }
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
