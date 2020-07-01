@@ -25,7 +25,6 @@ node {
              echo '----------------------------- REMOVE IMAGE COMPLETED -----------------------------'
         }
          stage('Deploy in server'){
-             steps{
                 sh 'chmod +x changeTag.sh'
                 sh './changeTag.sh 1.${BUILD_NUMBER}'
                 sshagent(['server']) {
@@ -38,5 +37,4 @@ node {
                       }
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
-         }
   }
