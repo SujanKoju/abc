@@ -29,10 +29,10 @@ node {
                 sh './changeTag.sh 1.${BUILD_NUMBER}'
                 sshagent(['ayo-server']) {
                       echo '----------------------------- ENTERED REMOTE SERVER -----------------------------'
-                      sh "ssh -o StrictHostKeyChecking=no sujan@77.68.121.41 'ls'"
-                     /*  sh 'scp -o StrictHostKeyChecking=no deployment.yaml service.yaml sujan@77.68.121.41'
-                      sh 'ssh sujan@77.68.121.41 kubectl apply -f deployment.yaml'
-                      sh 'ssh sujan@77.68.121.41 kubectl apply -f service.yaml' */
+                      sh "ssh -o StrictHostKeyChecking=no root@77.68.121.41 'ls'"
+                     /*  sh 'scp -o StrictHostKeyChecking=no deployment.yaml service.yaml root@77.68.121.41'
+                      sh 'ssh root@77.68.121.41 kubectl apply -f deployment.yaml'
+                      sh 'ssh root@77.68.121.41 kubectl apply -f service.yaml' */
                       }
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
