@@ -30,8 +30,8 @@ node {
                 sshagent(['ayo-server']) {
                       echo '----------------------------- ENTERED REMOTE SERVER -----------------------------'
                       sh 'scp -o StrictHostKeyChecking=no deployment.yaml service.yaml root@77.68.121.41:/home/sujan/'
-                      sh 'ssh root@77.68.121.41 kubectl apply -f deployment.yaml'
-                      sh 'ssh root@77.68.121.41 kubectl apply -f service.yaml'
+                      sh 'ssh root@77.68.121.41:/home/sujan/ kubectl apply -f deployment.yaml'
+                      sh 'ssh root@77.68.121.41:/home/sujan/ kubectl apply -f service.yaml'
                       }
                     echo '----------------------------- DEPLOYMENT COMPLETED -----------------------------'
                 }
