@@ -12,7 +12,7 @@ public class TestController {
     @GetMapping("test")
     public String test() {
         logger.info("HERE I AM SUJAN");
-        return "HELLO WORLD ..Kubenetess CICD SUCCESS";
+        return "HELLO WORLD ..MAIN HOON DON";
     }
 
 }
