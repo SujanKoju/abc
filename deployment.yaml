@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: abc-example
-          image: suzuran1995/abc:1.${BUILD_NUMBER}
+          image: suzuran1995/abc:tagVersion
           ports:
             - containerPort: 8080
             - containerPort: 443
