@@ -25,8 +25,8 @@ node {
              echo '----------------------------- REMOVE IMAGE COMPLETED -----------------------------'
         }
          stage('Deploy in server'){
-                sh 'chmod +x changeTag.sh'
-                sh './changeTag.sh 1.${BUILD_NUMBER}'
+              /*   sh 'chmod +x changeTag.sh'
+                sh './changeTag.sh 1.${BUILD_NUMBER}' */
                 sshagent(['ayo-server']) {
                       echo '----------------------------- ENTERED REMOTE SERVER -----------------------------'
                       sh 'scp -o StrictHostKeyChecking=no deployment.yaml service.yaml root@77.68.121.41:/home/sujan/'
