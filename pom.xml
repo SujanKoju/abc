@@ -36,25 +36,28 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 	<distributionManagement>
 		<repository>
 			<id>central</id>
-			<name>6d52115711af-releases</name>
-			<url>http://172.105.47.252:8081/artifactory/sastra-p2s-release-local</url>
+			<name>EC2AMAZ-2QOIUOH-releases</name>
+			<url>http://ec2-35-179-16-107.eu-west-2.compute.amazonaws.com:8001/artifactory/ayo-repo</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<name>6d52115711af-snapshots</name>
-			<url>http://172.105.47.252:8081/artifactory/sastra-p2s-release-local</url>
+			<name>EC2AMAZ-2QOIUOH-snapshots</name>
+			<url>http://ec2-35-179-16-107.eu-west-2.compute.amazonaws.com:8001/artifactory/ayo-repo</url>
 		</snapshotRepository>
 	</distributionManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

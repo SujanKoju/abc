@@ -16,6 +16,7 @@ node {
                 withCredentials([string(credentialsId: 'Sujan_Docker', variable: 'dockerHubPwd')]) {
                     sh "docker login -u suzuran1995 -p ${dockerHubPwd}"
                 }
+                    sh 'docker push suzuran1995/abc:latest'
                     sh 'docker push suzuran1995/abc:1.${BUILD_NUMBER}'
                      echo '----------------------------- IMAGE PUSH COMPLETED -----------------------------'
         }
