@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: abc-example
+  name: abc-exam
   labels:
-    app: abc-example
+    app: abc-exam
 spec:
   replicas: 2
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: abc-example
+      app: abc-exam
   template:
     metadata:
       labels:
-        app: abc-example
+        app: abc-exam
     spec:
       containers:
-        - name: abc-example
+        - name: abc-exam
           image: suzuran1995/abc:tagVersion
           ports:
             - containerPort: 8080
