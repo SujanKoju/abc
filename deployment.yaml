@@ -5,7 +5,7 @@ metadata:
   labels:
     app: abc-example
 spec:
-  replicas: 1
+  replicas: 5
   strategy:
     type: Recreate
   selector:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: abc-example
-          image: suzuran1995/abc:tagVersion
+          image: suzuran1995/abc:1.${BUILD_NUMBER}
           ports:
             - containerPort: 8080
             - containerPort: 443
