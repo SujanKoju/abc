@@ -11,7 +11,7 @@ public class TestController {
 
     @GetMapping("test")
     public String test() {
-        logger.info("HERE I AM SUJAN");
+        logger.info("HERE I AasdsaM SUJAN");
         return "HELLO WORLD ..MAIN HOON DON";
     }
 
